@@ -30,8 +30,8 @@ function updateUserInfo(data){
 async function updateLike(id, value){
     let sql = `
         UPDATE user
-        SET like ='${value}'
-        WHERE userID ='${data.userID}'
+        SET likes =${value}
+        WHERE userID =${id}
         `;
     await db.execute(sql);
 }

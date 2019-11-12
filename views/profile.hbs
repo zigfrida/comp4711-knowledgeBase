@@ -8,7 +8,7 @@
         </div>
         <div id="extra_info">
             <a href="">Message</a><br>
-            <form action="/like" method="POST">
+            <form action="/like/{{user.userID}}" method="POST">
                 <button type="submit">{{user.likes}} Likes</button>
             </form>
             <p>Posts</p>

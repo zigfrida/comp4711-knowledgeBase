@@ -11,6 +11,7 @@ router.get('/', loginController.loggedin, homeController.getHomePage);
 
 router.get('/profile/:id', userController.getUser);
 
+
 router.get('/signup', function (req, res) {
     res.render('signup', {
         pageTitle: 'Signup',
@@ -37,6 +38,6 @@ router.post('/moreDetails', loginController.loggedin, userController.moreDetail)
 
 router.post('/logout', loginController.logout);
 
-router.post('/like', loginController.auth, userController.like);
+router.post('/like/:id', loginController.auth, userController.like);
 
 module.exports = router;

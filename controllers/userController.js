@@ -81,9 +81,9 @@ exports.like = async function (req, res, next) {
     let user = userModel.getUser(userID);
     user.then(async function ([data]) {
         let userData = await JSON.parse(JSON.stringify(data));
-        let numLikes = userData[0].likes;
-        await userModel.like(id, numLikes);
-        res.redirect(301, '/');
+        let numLikes = userData[0].likes + 1;
+        await userModel.like(userID, numLikes);
+        res.redirect(301, `/profile/${userID}`);
     }).catch((err) => {
         console.log(err);
     });
