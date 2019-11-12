@@ -1,7 +1,7 @@
 let commentModel = require("../models/commentModel");
 
 exports.newComment = (req, res, next) => {
-    let userID = 1;
+    let userID = req.session.userID;
     let postID = req.body.postID;
     let comment = req.body.new_comment;
 

@@ -2,7 +2,7 @@ let postModel = require("../models/postModel");
 let dateFormat = require('dateformat');
 
 exports.newPost = (req, res, next) => {
-    let userID = 3;
+    let userID = req.session.userID;
     let subject = req.body.subject;
     let detail = req.body.detail;
     let topic = req.body.topic;

@@ -38,10 +38,20 @@ exports.loginSignUp = (req, res, next) => {
     });
 }
 
-exports.auth = (req, res, next) => {
+exports.loggedin = (req, res, next) => {
     if (req.session.loggedin) {
         next();
     } else {
+        res.redirect(301, '/signup');
+    }
+}
+
+exports.auth = (req, res, next) => {
+    let idPage = req.params.id;
+    if (req.session.userID !== idPage) {
+        next();
+    } else {
+        console.log("Cannot like own profile page");
         res.redirect(301, '/signup');
     }
 }

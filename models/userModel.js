@@ -27,8 +27,18 @@ function updateUserInfo(data){
     db.execute(sql);
 }
 
+async function updateLike(id, value){
+    let sql = `
+        UPDATE user
+        SET like ='${value}'
+        WHERE userID ='${data.userID}'
+        `;
+    await db.execute(sql);
+}
+
 module.exports = {
     getUser: getUser,
     addUser: newUser,
     update: updateUserInfo,
+    like: updateLike,
 }

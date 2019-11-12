@@ -74,3 +74,17 @@ exports.moreDetail = (req, res, next) => {
     userModel.update(updateObject);
     res.redirect(301, '/');
 }
+
+exports.like = async function (req, res, next) {
+    let userID = req.params.id;
+
+    let user = userModel.getUser(userID);
+    user.then(async function ([data]) {
+        let userData = await JSON.parse(JSON.stringify(data));
+        let numLikes = userData[0].likes;
+        await userModel.like(id, numLikes);
+        res.redirect(301, '/');
+    }).catch((err) => {
+        console.log(err);
+    });
+}

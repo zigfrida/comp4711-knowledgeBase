@@ -67,3 +67,29 @@ nav a {
     width: 150px;
     border: 1px solid lightgray
 }
+
+/******************************************************************/
+#moreDetail_container {
+    margin-top: 100px;
+    width: 350px;
+    float: right;
+}
+
+#moreDetail_container input {
+    display: block;
+    width: 90%;
+    padding-top: 6px;
+    padding-bottom: 6px;
+    margin-bottom: 15px;
+}
+
+#moreDetail_container textarea {
+    width: 90%;
+    height: 70px;
+    display: block;
+    margin-bottom: 17px;
+}
+
+#moreDetail_container button {
+    width: 92%;
+}

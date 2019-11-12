@@ -7,7 +7,7 @@ const commentController = require("../controllers/commentController");
 const loginController = require("../controllers/loginController");
 
 
-router.get('/', homeController.getHomePage);
+router.get('/', loginController.loggedin, homeController.getHomePage);
 
 router.get('/profile/:id', userController.getUser);
 
@@ -26,15 +26,17 @@ router.get('/moreDetails', function (req, res) {
     });
 });
 
-router.post('/search', homeController.getSearch);
-router.post('/searchTopic', homeController.getSearchTopic);
-router.post('/newPost', postController.newPost);
-router.post('/newComment', commentController.newComment);
+router.post('/search', loginController.loggedin,  homeController.getSearch);
+router.post('/searchTopic', loginController.loggedin, homeController.getSearchTopic);
+router.post('/newPost', loginController.loggedin, postController.newPost);
+router.post('/newComment', loginController.loggedin, commentController.newComment);
 
 router.post('/signup', userController.signup, loginController.loginSignUp);
 router.post('/login', loginController.login);
-router.post('/moreDetails', userController.moreDetail);
+router.post('/moreDetails', loginController.loggedin, userController.moreDetail);
 
-router.get('/logout', loginController.logout);
+router.post('/logout', loginController.logout);
+
+router.post('/like', loginController.auth, userController.like);
 
 module.exports = router;
