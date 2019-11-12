@@ -5,8 +5,26 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Knowledge Base</title>
+
+    <link href="https://fonts.googleapis.com/css?family=Roboto&display=swap" rel="stylesheet">
+
+    {{#if signupCSS}}
+        <link rel="stylesheet" href="/css/signup.css" type="text/css">
+    {{else}}
+        <link rel="stylesheet" href="/css/home.css" type="text/css">
+    {{/if}}
+
+    {{#if profileCSS}}
+        <link rel="stylesheet" href="/css/profile.css" type="text/css">
+    {{/if}}
+
+    <link rel="stylesheet" href="/css/style.css" type="text/css">
+
+    <script defer src="/js/homeScript.js"></script>
 </head>
 <body>
+    {{>navBar}}
     
+    {{{ body }}}
 </body>
 </html>

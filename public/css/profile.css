@@ -1,0 +1,67 @@
+#profile_container {
+    margin-top: 80px;
+    width: 500px;
+    height: auto;
+}
+
+#profile_info > img {
+    height: 160px;
+    border-radius: 50%;
+}
+
+#profile_box {
+    height: 300px;
+}
+
+#user_posts h2 {
+    margin-top: 30px;
+    margin-bottom: 30px;
+}
+
+#user_posts img {
+    border-radius: 50%;
+}
+
+#name {
+    font-size: 30px;
+    margin-bottom: 10px;
+}
+
+#desc {
+    margin-top: 0;
+}
+
+#profile_info {
+    width: 400px;
+    float: left;
+}
+
+#extra_info {
+    float: right;
+    margin-top: 200px;
+}
+
+#extra_info a {
+    color: white;
+    text-decoration: none;
+    background-color: rgb(1, 162, 231);
+    padding: 10px 15px 10px 15px;
+}
+
+#extra_info button {
+    font-size: 20px;
+    margin-top: 20px;
+    margin-left: 5px;
+    background-color: transparent;
+    color: rgb(1, 162, 231);
+    border: none;
+    cursor: pointer;
+}
+
+#extra_info p {
+    font-size: 20px;
+    margin-top: 10px;
+    margin-left: 10px;
+    color: rgb(1, 162, 231);
+}
+

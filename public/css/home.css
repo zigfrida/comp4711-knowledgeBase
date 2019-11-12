@@ -1,0 +1,244 @@
+#home_container {
+    margin-top: 60px;
+    width: auto;
+    height: auto;
+}
+
+#user_info {
+    float: left;
+    align-items: center;
+    text-align: center;
+    margin-left: 50px;
+    margin-right: 80px;
+    margin-top: 90px;
+    width: 200px;
+    word-wrap: break-word;
+}
+
+#user_info img {
+    border-radius: 50%;
+    margin-bottom: 25px;
+}
+
+#user_info p {
+    margin: 0;
+    margin-bottom: 7px;
+}
+
+#user_info table {
+    margin-top: 25px;
+    margin-bottom: 25px;
+}
+
+#user_info table td {
+    padding-right: 20px;
+    text-align: left;
+}
+
+/******************************************************/
+
+#post_page {
+    margin-right: 50px;
+    overflow: auto;
+}
+
+#new_post {
+    width: 260px;
+}
+
+#new_post p {
+    font-size: 20px;
+    color: rgb(145, 145, 145);
+    font-weight: bold;
+}
+
+#new_post input {
+    display: block;
+    width: 90%;
+    padding-top: 6px;
+    padding-bottom: 6px;
+    margin-bottom: 15px;
+}
+
+textarea {
+    width: 90%;
+    height: 70px;
+    display: block;
+    margin-bottom: 17px;
+}
+
+select {
+    width: 50%;
+    /* width: calc(90% - 125px); */
+    color: rgb(1, 162, 231);
+    border: 1px solid rgb(1, 162, 231);
+    cursor: pointer;
+    padding-top: 3px;
+    padding-bottom: 3px;
+}
+
+#new_post button {
+    width: calc(90% - 110px);
+    background-color: white;
+    color: rgb(1, 162, 231);
+    border: 1px solid rgb(1, 162, 231);
+    cursor: pointer;
+    padding-top: 3px;
+    padding-bottom: 3px;
+}
+
+/**************************************************/
+
+.post_content {
+    display: block;
+    overflow: auto;
+    height: 100%;
+    margin-top: 20px;
+    margin-bottom: 50px;
+    width: 480px;
+}
+
+#search_topic {
+    margin-bottom: 50px;
+}
+
+#search_topic p {
+    margin-top: 50px;
+    font-size: 16px;
+    color: rgb(114, 113, 113);
+    font-weight: bold;
+}
+
+#search_topic button {
+    cursor: pointer;
+    margin-left: 10px;
+    width: 80px;
+    color: white;
+    background-color: rgb(1, 162, 231);
+    border: none;
+    font-weight: bold;
+    padding-top: 5px;
+    padding-bottom: 5px;
+    text-align: left;
+}
+
+/************************************************************/
+#latest_posts img {
+    border-radius: 50%;
+    margin-top: 15px;
+}
+
+
+.post_text {
+    width: 380px;
+    float: right;
+    word-wrap: break-word;
+}
+
+.subject {
+    margin-top: 5px;
+    font-size: 17px;
+    margin-bottom: 10px;
+    display: inline-block;
+    font-size: 22px;
+    width: calc(100% - 100px);
+    color: rgb(114, 113, 113);
+}
+
+.desc {
+    margin-top: 10px;
+}
+
+.date {
+    float: left;
+}
+
+.replies {
+    float: right;
+    margin-right: 0px;
+}
+
+.replies button {
+    font-size: 16px;
+    border: none;
+    border-bottom: 1px solid rgb(1, 162, 231);
+    background-color: transparent;
+    cursor: pointer;
+    width: 90px;
+}
+
+#latest_posts > p {
+    font-size: 20px;
+    color: rgb(114, 113, 113);
+    font-weight: bold;
+}
+
+.topic {
+    margin-top: 5px;
+    float: right;
+    width: 70px;
+    padding: 2px 1px 2px 1px;
+    text-align: center;
+    border: 1px solid rgb(1, 162, 231);
+    color: rgb(1, 162, 231);
+}
+
+/****************************************************************/
+
+#new_comment {
+    width: 330px;
+    float: right;
+    margin-left: 30px;
+    word-wrap: break-word;
+    margin-top: 20px;
+}
+
+#new_comment input {
+    width: 300px;
+    padding: 10px;
+    margin-bottom: 10px;
+}
+
+#comment_btn {
+    float: right;
+    cursor: pointer;
+    width: 90px;
+    color: white;
+    background-color: rgb(1, 162, 231);
+    border: none;
+    font-weight: bold;
+    padding-top: 6px;
+    padding-bottom: 6px;
+    text-align: left;
+    margin-right: 6px;
+}
+
+.spec_container {
+    display: none;
+}
+
+.spec_container_show {
+    display: block;
+}
+
+.post_comment {
+    margin-top: 30px;
+    margin-left: 60px;
+    width: auto;
+    display: flex;
+}
+
+.comment_image {
+    height: 60px;
+}
+
+.comment_text_container {
+    width: 340px;
+    margin-top: 20px;
+    margin-left: 10px;
+}
+
+.comment_text {
+    margin: 0;
+    word-wrap: break-word;
+}

@@ -1,0 +1,20 @@
+<div id="profile_container">
+    <div id="profile_box">
+        <div id="profile_info">
+            <img src="{{user.image}}">
+            <p id="name">{{user.fname}} {{user.lname}}</p>
+            <p id="desc">{{user.description}}</p>
+            <p>{{user.country}}</p>
+        </div>
+        <div id="extra_info">
+            <a href="">Message</a><br>
+            <button>{{user.likes}} Likes</button>
+            <p>Posts</p>
+        </div>
+        <br>
+    </div>
+    <div id="user_posts">
+        <h2>All posts by {{user.fname}}</h2>
+        {{>posts_section}}
+    </div>
+</div>

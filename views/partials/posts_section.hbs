@@ -1,0 +1,41 @@
+{{#each post}}
+<div class="post_content">
+    <a href="/profile/{{this.userID}}"><img src="{{this.image}}"></a>
+    <div class="post_text">
+        <p class="subject">{{this.subject}}</p>
+        <span class="topic">{{this.topic}}</span>
+        <p class="desc">{{this.detail}}</p>
+        <p>
+            <span class="date">{{this.date}}</span>
+            <span class="replies">
+                <button type="button"
+                    onclick="toggleReplies({{this.postID}})">{{this.replies}} replies
+                </button>
+            </span>
+        </p>
+    </div>
+
+    <div id="{{this.postID}}" class="spec_container">
+        {{#each this.comments}}
+            <div class="post_comment">
+                <a href="/profile/{{userID}}"><img class="comment_image" src="{{image}}"></a>
+                <div class="comment_text_container">
+                    <p class="comment_text">{{comment}}</p>
+                </div>
+            </div>
+        {{/each}}
+        <div id="new_comment">
+            <form action="/newComment" method="POST">
+                <input type="hidden" name="postID" value="{{this.postID}}">
+                <input type="text" name="new_comment" placeholder="add your reply ...." required>
+                <button id="comment_btn" type="submit">comment</button>
+            </form>
+        </div>
+    </div>
+
+</div>
+{{/each}}
+
+{{!-- <a href="/:page?2">Next -></a>
+        <form action="/" method="GET"> --}}
+{{!-- <button type="button">Next -></button> --}}
