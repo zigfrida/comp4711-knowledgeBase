@@ -11,13 +11,6 @@ router.get('/', homeController.getHomePage);
 
 router.get('/profile/:id', userController.getUser);
 
-router.get('/login', function (req, res) {
-    res.render('login', {
-        pageTitle: 'Login',
-        signupCSS: true,
-    });
-});
-
 router.get('/signup', function (req, res) {
     res.render('signup', {
         pageTitle: 'Signup',
