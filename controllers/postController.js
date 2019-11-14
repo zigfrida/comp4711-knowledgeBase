@@ -1,5 +1,4 @@
 let postModel = require("../models/postModel");
-let dateFormat = require('dateformat');
 
 exports.newPost = (req, res, next) => {
     let userID = req.session.userID;
