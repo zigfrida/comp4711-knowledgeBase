@@ -47,7 +47,7 @@ exports.signup = async function (req, res, next) {
 
     let userObject = {
         fname: fname,
-        lanme: lname,
+        lname: lname,
         email: email,
         password: password,
     }
