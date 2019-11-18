@@ -5,6 +5,9 @@ let dateFormat = require('dateformat');
 
 exports.getUser = async (req, res, next) => {
     let userID = req.params.id;
+    if (userID == undefined || userID == null || userID == "") {
+        res.redirect(301, "");
+    }
     let user = userModel.getUser(userID);
     user.then(async function ([data]) {
         let userData = await JSON.parse(JSON.stringify(data));
@@ -12,6 +15,16 @@ exports.getUser = async (req, res, next) => {
 
         let query = postModel.getUserPosts(userData[0].userID);
         query.then(async function (rows) {
+
+            let postCount = postModel.getPostCount(userData[0].userID);
+            postCount.then(async function ([num]) {
+                let postCountData = await JSON.parse(JSON.stringify(num));
+                userData[0].postCount = postCountData[0].count;
+                //console.log(postCountData[0].count);
+            }).catch((err) => {
+                console.log(err);
+            });
+
             let posts = await JSON.parse(JSON.stringify(rows));
             posts[0].forEach(async function (post) {
                 post.date = dateFormat(post.date, "dd mmm yyyy");
@@ -31,6 +44,7 @@ exports.getUser = async (req, res, next) => {
             });
             userData[0].posts = await JSON.parse(JSON.stringify(posts[0]));
             res.render('profile', {
+                pageTitle: "Profile Page",
                 profileCSS: true,
                 user: userData[0],
                 post: userData[0].posts,

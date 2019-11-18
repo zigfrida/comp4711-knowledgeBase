@@ -47,12 +47,12 @@ exports.loggedin = (req, res, next) => {
 }
 
 exports.auth = (req, res, next) => {
-    let idPage = req.params.id;
-    if (req.session.userID !== idPage) {
+    let userID = req.params.id;
+    if (req.session.userID != userID) {
         next();
     } else {
         console.log("Cannot like own profile page");
-        res.redirect(301, '/signup');
+        res.redirect(301, `/profile/${userID}`);
     }
 }
 

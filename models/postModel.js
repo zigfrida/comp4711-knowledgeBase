@@ -44,10 +44,18 @@ async function getPostsByUser(id){
     `);
 }
 
+async function getPostCount(id) {
+    return await db.execute(`
+            SELECT COUNT(*) AS count 
+            FROM post p 
+            WHERE userID =${id}`);
+}
+
 module.exports = {
     add: addPost,
     getPosts: getLatestPosts,
     getSearch: getSearchPosts,
     getByTopic: getSearchTopicPosts,
     getUserPosts: getPostsByUser,
+    getPostCount: getPostCount,
 }

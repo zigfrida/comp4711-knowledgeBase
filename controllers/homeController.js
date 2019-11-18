@@ -39,6 +39,7 @@ exports.getHomePage = async (req, res, next) => {
                 });
             });
             res.render('home', {
+                pageTitle: "Home Page",
                 user: userData[0],
                 post: posts[0],
             });
@@ -83,6 +84,7 @@ exports.getSearch = async (req, res, next) => {
                 });
             });
             res.render('home', {
+                pageTitle: "Home Page",
                 search: true,
                 user: userData[0],
                 post: posts[0],
@@ -128,6 +130,7 @@ exports.getSearchTopic = async (req, res, next) => {
                 });
             });
             res.render('home', {
+                pageTitle: "Home Page",
                 search: true,
                 user: userData[0],
                 post: posts[0],

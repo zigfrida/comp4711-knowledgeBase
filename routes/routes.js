@@ -11,6 +11,7 @@ router.get('/', loginController.loggedin, homeController.getHomePage);
 
 router.get('/profile/:id', userController.getUser);
 
+//router.post('/profile/:id', userController.getUser);
 
 router.get('/signup', function (req, res) {
     res.render('signup', {

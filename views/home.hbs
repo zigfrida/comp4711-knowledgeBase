@@ -1,12 +1,16 @@
 <div id="home_container">
 
     <div id="user_info">
-        <img src="{{user.image}}">
+        <a href="/profile/{{user.userID}}"><img src="{{user.image}}"></a>
         <p><b>{{user.fname}} {{user.lname}}</b></p>
         <p>{{user.description}}</p>
         <table align="center">
             <tr>
-                <td><a href="/profile/{{user.userID}}">Posts</a></td>
+                <td>
+                    <form action="/profile/{{user.userID}}" method="GET">
+                    <button id="postsBtn" type="submit">Posts</button>
+                    </form>
+                </td>
                 <td>3</td>
             </tr>
             <tr>
