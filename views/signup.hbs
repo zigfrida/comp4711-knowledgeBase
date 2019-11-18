@@ -1,4 +1,16 @@
 <div>
+    <img>
+    <form action="/login" method="POST">
+        <input type="email" name="email" id="email-login">
+        <input type="password" name="password" id="password-login">
+        <input type="submit">
+    </form>
+</div>
+
+<div>
+    <div>
+        <img src="../public/images/vector-knowledge.jpg">
+    </div>
     <div id="form_container">
         <h1>Join the worlds largest community for knowledge sharing</h1>
         <form action="/signup" method="POST">
@@ -6,7 +18,7 @@
             <input type="text" name="lname" placeholder="lastname" required>
             <input type="email" name="email" placeholder="email" required>
             <input type="password" name="password" placeholder="password" required>
-            <input type="password" name="confirm_password" placeholder="confirm password" required> 
+            <input type="password" name="confirm_password" placeholder="confirm password" required>
             <button type="submit"><b>signup</b></button>
         </form>
     </div>
