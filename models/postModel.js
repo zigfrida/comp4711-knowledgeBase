@@ -6,40 +6,49 @@ function addPost(data) {
 }
 
 async function getLatestPosts(pageNumber) {
-    return await db.execute(
-        `SELECT p.userID, p.postID, u.image, p.subject, p.detail, p.topic, p.date
-        FROM post p 
+    return await db.execute(`
+        SELECT p.userID, u.image, p.postID, p.subject, p.detail, p.topic, p.date, COUNT(c.postID) AS replies
+        FROM post p
+        LEFT JOIN comment c ON p.postID = c.postID
         LEFT JOIN user u ON p.userID = u.userID
+        GROUP BY postID
         ORDER BY p.date DESC
-        LIMIT ${pageNumber}, 5`);
+        LIMIT ${pageNumber}, 5
+        `);
 }
 
 async function getSearchPosts(pattern){
     return await db.execute(`
-        SELECT p.postID, u.image, p.subject, p.detail, p.topic, p.date
+        SELECT p.userID, u.image, p.postID, p.subject, p.detail, p.topic, p.date, COUNT(c.postID) AS replies
         FROM post p
+        LEFT JOIN comment c ON p.postID = c.postID
         LEFT JOIN user u ON p.userID = u.userID
         WHERE p.subject LIKE '%${pattern}%'
+        GROUP BY postID
         ORDER BY p.date DESC
     `);
 }
 
 async function getSearchTopicPosts(pattern) {
     return await db.execute(`
-        SELECT p.postID, u.image, p.subject, p.detail, p.topic, p.date
+        SELECT p.userID, u.image, p.postID, p.subject, p.detail, p.topic, p.date, COUNT(c.postID) AS replies
         FROM post p
+        LEFT JOIN comment c ON p.postID = c.postID
         LEFT JOIN user u ON p.userID = u.userID
-        WHERE p.topic ='${pattern}'
+        WHERE p.topic = '${pattern}'
+        GROUP BY postID
         ORDER BY p.date DESC
     `);
 }
 
 async function getPostsByUser(id){
     return await db.execute(`
-        SELECT p.postID, u.image, p.subject, p.detail, p.topic, p.date
+        SELECT u.image, p.postID, p.subject, p.detail, p.topic, p.date, COUNT(c.postID) AS replies
         FROM post p
+        LEFT JOIN comment c ON p.postID = c.postID
         LEFT JOIN user u ON p.userID = u.userID
-        WHERE p.userID ='${id}'
+        WHERE p.userID = '${id}'
+        GROUP BY postID
         ORDER BY p.date DESC
     `);
 }

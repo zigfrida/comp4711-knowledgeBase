@@ -6,7 +6,7 @@
         <span class="topic">{{this.topic}}</span>
         <p class="desc">{{this.detail}}</p>
         <p>
-            <span class="date">{{this.date}}</span>
+            <span class="date">{{#date this.date}}{{/date}}</span>
             <span class="replies">
                 <button type="button"
                     onclick="toggleReplies({{this.postID}})">{{this.replies}} replies
@@ -14,15 +14,16 @@
             </span>
         </p>
     </div>
-
     <div id="{{this.postID}}" class="spec_container">
-        {{#each this.comments}}
-            <div class="post_comment">
-                <a href="/profile/{{userID}}"><img class="comment_image" src="{{image}}"></a>
-                <div class="comment_text_container">
-                    <p class="comment_text">{{comment}}</p>
+        {{#each ../comments}}
+            {{#ifPost ../postID postID}}
+                <div class="post_comment">
+                    <a href="/profile/{{userID}}"><img class="comment_image" src="{{image}}"></a>
+                    <div class="comment_text_container">
+                        <p class="comment_text">{{comment}}</p>
+                    </div>
                 </div>
-            </div>
+            {{/ifPost}}
         {{/each}}
         <div id="new_comment">
             <form action="/newComment" method="POST">

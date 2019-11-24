@@ -20,8 +20,15 @@ async function getRepliesCount(id) {
             WHERE postID =${id}`);
 }
 
+function getAllComments(){
+    return db.execute(`SELECT c.postID, u.userID, u.image, c.comment 
+            FROM comment c
+            LEFT JOIN user u ON c.userID = u.userID`);
+}
+
 module.exports = {
     add: addComment,
     getComments: getPostComments,
     getRepliesCount: getRepliesCount,
+    getAll: getAllComments,
 }
