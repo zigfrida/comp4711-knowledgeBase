@@ -13,7 +13,5 @@ function getAllComments(){
 
 module.exports = {
     add: addComment,
-    getComments: getPostComments,
-    getRepliesCount: getRepliesCount,
     getAll: getAllComments,
 }
