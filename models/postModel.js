@@ -43,7 +43,7 @@ async function getSearchTopicPosts(pattern) {
 
 async function getPostsByUser(id){
     return await db.execute(`
-        SELECT u.image, p.postID, p.subject, p.detail, p.topic, p.date, COUNT(c.postID) AS replies
+        SELECT u.userID, u.image, p.postID, p.subject, p.detail, p.topic, p.date, COUNT(c.postID) AS replies
         FROM post p
         LEFT JOIN comment c ON p.postID = c.postID
         LEFT JOIN user u ON p.userID = u.userID

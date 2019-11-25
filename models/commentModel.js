@@ -5,21 +5,6 @@ function addComment(data){
     db.execute(sql);
 }
 
-async function getPostComments(id){
-    return await db.execute(`
-            SELECT u.userID, u.image, c.comment 
-            FROM comment c 
-            LEFT JOIN user u ON c.userID = u.userID 
-            WHERE postID = ${id}`);
-}
-
-async function getRepliesCount(id) {
-    return await db.execute(`
-            SELECT COUNT(*) AS count 
-            FROM comment c 
-            WHERE postID =${id}`);
-}
-
 function getAllComments(){
     return db.execute(`SELECT c.postID, u.userID, u.image, c.comment 
             FROM comment c

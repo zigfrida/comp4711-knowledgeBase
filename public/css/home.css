@@ -137,6 +137,8 @@ select {
 #latest_posts img {
     border-radius: 50%;
     margin-top: 15px;
+    max-height: 72px;
+    width: auto;
 }
 
 .post_text {
@@ -240,6 +242,7 @@ select {
 
 .comment_image {
     height: 60px;
+    width: auto;
 }
 
 .comment_text_container {
@@ -251,4 +254,19 @@ select {
 .comment_text {
     margin: 0;
     word-wrap: break-word;
+}
+
+/*****************************************************************/
+#page_btn_container {
+    margin-bottom: 50px;
+}
+
+#page_btn_container input {
+    padding: 5px 10px 5px 10px;
+    background-color: rgb(1, 162, 231);
+    color: white;
+    text-decoration: none;
+    margin-left: 20px;
+    cursor: pointer;
+    border: none;
 }

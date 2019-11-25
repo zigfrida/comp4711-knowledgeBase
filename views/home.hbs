@@ -67,8 +67,10 @@
             
             {{>posts_section}}
 
-            <a href="/page/1?">Previous</a>
-            <a href="/page/2?">Next</a>
+            <div id="page_btn_container">
+                <input type="button" onclick="previousPage()" value="<- Previous">
+                <input type="button" onclick="nextPage()" value="Next ->">
+            </div>
         </div>
     </div>
 
