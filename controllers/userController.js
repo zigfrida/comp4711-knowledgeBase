@@ -5,7 +5,7 @@ let dateFormat = require('dateformat');
 
 exports.getUser = async (req, res, next) => {
     let userID = req.params.id;
- 
+
     let user = userModel.getUser(userID);
     user.then(([data]) => {
         let userData = JSON.parse(JSON.stringify(data));
@@ -21,7 +21,7 @@ exports.getUser = async (req, res, next) => {
                 let commentQuery = commentModel.getAll();
                 commentQuery.then(([comments]) => {
                     commentsData = JSON.parse(JSON.stringify(comments));
-    
+
                     res.render('profile', {
                         pageTitle: "Profile Page",
                         profileCSS: true,
@@ -40,17 +40,31 @@ exports.signup = async function (req, res, next) {
     let lname = req.body.lname;
     let email = req.body.email;
     let password = req.body.password;
+    let confirm_password = req.body.confirm_password;
 
-    let userObject = {
-        fname: fname,
-        lname: lname,
-        email: email,
-        password: password,
+    if (password != confirm_password) {
+
+        res.render('signup', { 
+            passwordError : "Passwords do not match. Please try again.",
+            signupCSS : true,
+            loginNAV : true
+         })
+
+    } else {
+
+      let userObject = {
+          fname: fname,
+          lname: lname,
+          email: email,
+          password: password,
+      }
+
+      await userModel.addUser(userObject);
+      res.locals.user = userObject;
+      next();
+
     }
 
-    await userModel.addUser(userObject);
-    res.locals.user = userObject;
-    next();
 }
 
 exports.moreDetail = (req, res, next) => {
