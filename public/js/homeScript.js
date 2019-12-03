@@ -8,34 +8,28 @@ function toggleReplies(id) {
     }
 }
 
-async function nextPage() {
+function nextPage() {
     let url = window.location.href;
     let split = url.split("/");
     let currentPage = split[split.length - 1][0];
-    let nextPage = parseInt(currentPage) + 1;
     let newUrl = "";
-    for (let index = 0; index < split.length - 2; index++) {
-        newUrl += split[index];
+    if(currentPage === undefined){
+        newUrl += "/page/" + 1 + "?";
+    } else {
+        newUrl += "/page/" + (parseInt(currentPage) + 1) + "?";
     }
-    newUrl += "/page/" + nextPage + "?";
-    let testUrl = "/page/" + nextPage + "?"
-
-    console.log(newUrl);
-
-    // console.log(testUrl);
-    let resposnse = await fetch(new URL(newUrl));
-
-    // fetch(new URL(newUrl), {
-    //     method: 'GET',
-    // }).catch((err) => {
-    //     console.error(err);
-    // });
+    window.location.href = newUrl;
 }
 
 function previousPage() {
     let url = window.location.href;
     let split = url.split("/");
     let currentPage = split[split.length - 1][0];
-    let previousPage = parseInt(currentPage) - 1;
-    console.log(previousPage);
+    let newUrl = "";
+    if (currentPage === undefined || currentPage == 0) {
+        return;
+    } else {
+        newUrl += "/page/" + (parseInt(currentPage) - 1) + "?";
+    }
+    window.location.href = newUrl;
 }

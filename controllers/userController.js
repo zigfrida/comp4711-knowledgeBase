@@ -3,7 +3,7 @@ let postModel = require("../models/postModel");
 let commentModel = require("../models/commentModel");
 let dateFormat = require('dateformat');
 
-exports.getUser = async (req, res, next) => {
+exports.getUser = (req, res, next) => {
     let userID = req.params.id;
 
     let user = userModel.getUser(userID);
