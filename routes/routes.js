@@ -32,10 +32,10 @@ router.post('/search', loginController.loggedin,  homeController.getSearch);
 router.post('/searchTopic', loginController.loggedin, homeController.getSearchTopic);
 router.post('/newPost', loginController.loggedin, postController.newPost);
 router.post('/newComment', loginController.loggedin, commentController.newComment);
-
 router.post('/signup', userController.signup, loginController.loginSignUp);
 router.post('/login', loginController.login);
 router.post('/moreDetails', loginController.loggedin, userController.moreDetail);
+router.post('/editProfile', loginController.loggedin, userController.updateProfile)
 
 router.post('/logout', loginController.logout);
 
