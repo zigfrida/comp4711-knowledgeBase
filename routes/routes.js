@@ -28,6 +28,13 @@ router.get('/moreDetails', function (req, res) {
     });
 });
 
+router.get('/editProfile', function (req, res) {
+    res.render('editProfile', {
+        pageTitle: 'Edit Profile',
+        signupCSS: true,
+    });
+});
+
 router.post('/search', loginController.loggedin,  homeController.getSearch);
 router.post('/searchTopic', loginController.loggedin, homeController.getSearchTopic);
 router.post('/newPost', loginController.loggedin, postController.newPost);

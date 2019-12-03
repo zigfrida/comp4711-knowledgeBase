@@ -104,7 +104,7 @@ exports.updateProfile = (req, res, next) => {
         birth: birth,
     }
     userModel.updateProfile(updateObject);
-    res.redirect(301, '/editProfile');
+    res.redirect(301, '/');
 }
 
 exports.like = async function (req, res, next) {
