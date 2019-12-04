@@ -1,0 +1,16 @@
+<div id="moreDetail_container">
+    <div>
+        <h1>{{pageTitle}}</h1>
+    </div>
+    <div>
+        <form action="/editProfile" method="POST">
+            <input type="text" name="fname" placeholder="First Name" required>
+            <input type="text" name="lname" placeholder="Last Name" required>
+            <input type="text" name="image" placeholder="Image URL" required>
+            <textarea name="about" required placeholder="Enter a few lines about yourself..."></textarea>
+            <input type="text" name="country" placeholder="Country" required>
+            <input type="date" name="date_birth" placeholder="Date Of Birth (MM/DD/YY)" required>
+            <button type="submit">Update Profile</button>
+        </form>
+    </div>
+</div>

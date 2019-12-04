@@ -31,7 +31,7 @@ function updateProfile(data) {
     let sql = `
         UPDATE user
         SET fname ='${data.fname}',
-            lname='${data.lname}'
+            lname='${data.lname}',
             image ='${data.image}',
             description = '${data.about}',
             country = '${data.country}',
