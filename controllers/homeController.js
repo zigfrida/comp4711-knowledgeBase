@@ -5,8 +5,8 @@ let postModel = require("../models/postModel");
 let commentModel = require("../models/commentModel");
 
 exports.getHomePage = (req, res, next) => {
-    let pageNumber = req.params.num;
-    if (pageNumber == undefined || pageNumber == "") {
+    let pageNumber = req.query.page;
+    if(pageNumber == undefined) {
         pageNumber = 0;
     }
     pageNumber = pageNumber * 5;

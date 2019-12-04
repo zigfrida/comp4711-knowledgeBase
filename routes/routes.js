@@ -9,8 +9,6 @@ const loginController = require("../controllers/loginController");
 
 router.get('/', loginController.loggedin, homeController.getHomePage);
 
-router.get('/page/:num', loginController.loggedin, homeController.getHomePage);
-
 router.get('/profile/:id', userController.getUser);
 
 router.get('/signup', function (req, res) {
