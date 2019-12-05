@@ -46,6 +46,16 @@
     color: rgb(1, 162, 231);
 }
 
+#messageBtn {
+    font-size: 16px;
+    padding: 0;
+    background-color: transparent;
+    border: none;
+    text-decoration: underline;
+    cursor: pointer;
+    color: rgb(1, 162, 231);
+}
+
 /******************************************************/
 
 #post_page {

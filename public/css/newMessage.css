@@ -14,7 +14,7 @@
 
 #partnerImage > img {
     float: left;
-    height: 80px;
+    height: 100px;
     width: 100px;
     border-radius: 50%;
 
@@ -23,11 +23,22 @@
 #messageDetails > form > input {
     width: 400px;
     margin-bottom: 20px;
-    margin-left: 40px;
+    margin-left: 70px;
+    height: 30px;
 }
 
 #messageDetails > form > textarea {
-    resize: none;
     width: 400px;
-    margin-left: 40px;
+    margin-left: 70px;
+}
+
+button {
+    font-size: 15px;
+    padding: 5px 10px 5px 10px;
+    background-color: rgb(1, 162, 231);
+    color: white;
+    text-decoration: none;
+    margin-left: 70px;
+    cursor: pointer;
+    border: none;
 }
