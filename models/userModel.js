@@ -27,6 +27,20 @@ function updateUserInfo(data){
     db.execute(sql);
 }
 
+function updateProfile(data) {
+    let sql = `
+        UPDATE user
+        SET fname ='${data.fname}',
+            lname='${data.lname}',
+            image ='${data.image}',
+            description = '${data.about}',
+            country = '${data.country}',
+            birthday = STR_TO_DATE('${data.birth}', '%Y-%m-%d')
+        WHERE userID ='${data.userID}'
+        `;
+    db.execute(sql);
+}
+
 async function updateLike(id, value){
     let sql = `
         UPDATE user
@@ -41,4 +55,5 @@ module.exports = {
     addUser: newUser,
     update: updateUserInfo,
     like: updateLike,
+    updateProfile: updateProfile,
 }

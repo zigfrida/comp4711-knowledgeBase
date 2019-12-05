@@ -41,8 +41,8 @@ async function getSearchTopicPosts(pattern) {
     `);
 }
 
-async function getPostsByUser(id){
-    return await db.execute(`
+function getPostsByUser(id){
+    return db.execute(`
         SELECT u.userID, u.image, p.postID, p.subject, p.detail, p.topic, p.date, COUNT(c.postID) AS replies
         FROM post p
         LEFT JOIN comment c ON p.postID = c.postID

@@ -47,12 +47,6 @@ app.use(bodyParser.urlencoded({
 let routes = require('./routes/routes');
 app.use(routes);
 
-app.get('/', function (req, res) {
-    res.render('home', {
-        pageTitle: 'Home',
-    });
-});
-
 app.listen(port, function () {
     console.log("Started on port 3000");
 });

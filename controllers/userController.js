@@ -3,7 +3,7 @@ let postModel = require("../models/postModel");
 let commentModel = require("../models/commentModel");
 let dateFormat = require('dateformat');
 
-exports.getUser = async (req, res, next) => {
+exports.getUser = (req, res, next) => {
     let userID = req.params.id;
 
     let user = userModel.getUser(userID);
@@ -82,6 +82,28 @@ exports.moreDetail = (req, res, next) => {
         birth: birth,
     }
     userModel.update(updateObject);
+    res.redirect(301, '/');
+}
+
+exports.updateProfile = (req, res, next) => {
+    let userID = req.session.userID;
+    let fname = req.body.fname;
+    let lname = req.body.lname;
+    let image = req.body.image;
+    let about = req.body.about;
+    let country = req.body.country;
+    let birth = req.body.date_birth;
+
+    let updateObject = {
+        userID: userID,
+        fname: fname,
+        lname: lname,
+        image: image,
+        about: about,
+        country: country,
+        birth: birth,
+    }
+    userModel.updateProfile(updateObject);
     res.redirect(301, '/');
 }
 
