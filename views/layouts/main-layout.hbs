@@ -23,11 +23,21 @@
     <link rel="stylesheet" href="/css/style.css" type="text/css">
     {{#if messageCSS}}
         <link rel="stylesheet" href="/css/message.css" type="text/css">
+        <script defer src="/js/messages.js"></script>
+    {{/if}}
+    {{#if newMessageCSS}}
+        <link rel="stylesheet" href="/css/newMessage.css" type="text/css">
     {{/if}}
 
     <script defer src="/js/homeScript.js"></script>
 </head>
+
+{{#if messageCSS}}
+<body onload="updateScroll()">
+{{else}}
 <body>
+{{/if}}
+
     {{>navBar}}
     
     {{{ body }}}

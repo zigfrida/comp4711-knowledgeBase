@@ -1,16 +1,25 @@
-{{#each messages}}
-<div class="message_box">
-    <img src="{{image}}">
-    <p class="name">{{fname}} {{lname}}</p>
-    <p class="message">{{message}}</p>
-    <p class="date">{{#date this.date}}{{/date}}</p>
-    <br>
+<div id="allMessages">
+    <div id="sub">
+        {{#each messages}}
+        <div class="message_box">
+            <h3 class="date">
+                <span>{{#date this.date}}{{/date}}</span></h2>
+            <img src="{{image}}">
+            <h3 class="name">{{fname}} {{lname}}</h3>
+            <p class="message">{{message}}</p>
+            
+            <br>
+        </div>
+        {{/each}}
+    </div>
 </div>
-{{/each}}
+
+{{#if openConvo}}
 <div id="message">
     <form action="/sendNewMessage" method="POST">
         <input type="hidden" name="conversationID" value={{conversationID}}>
-        <input type="text" name="message" placeholder="message...">
+        <textarea id="messageInput" type="text" name="message" placeholder="message..."></textarea>
         <button type="submit">Send</button>
     </form>
 </div>
+{{/if}}
