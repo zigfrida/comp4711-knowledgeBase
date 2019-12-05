@@ -2,10 +2,21 @@
 <form action="/conversations/{{conversationID}}" method="GET">
     <button type='submit'>
         <div class="conversation_box">
-            <img src="{{image}}">
-            <p class="topic">{{topic}}</p>
-            <p class="name">{{fname}}{{lname}}</p>
+            {{#ifPost uID ../user }}
             <p class="date">{{#date this.date}}{{/date}}</p>
+            <img src="{{pImage}}">
+            
+            <h3 class="name">{{pfname}} {{plname}}</h3>
+            <p class="convoSubject">{{topic}}</p>
+            {{/ifPost}}
+            {{#ifPost pID ../user}}
+            <img src="{{image}}">
+            <p class="date">{{#date this.date}}{{/date}}</p>
+            <h3 class="name">{{fname}} {{lname}}</h3>
+            <p class="convoSubject">{{topic}}</p>
+            
+            {{/ifPost}}
+            
             <br>
         </div>
     </button>

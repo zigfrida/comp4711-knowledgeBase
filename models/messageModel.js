@@ -16,7 +16,7 @@ function addMessage(data) {
 }
 
 function getAllConversations(id){
-    return db.execute(`SELECT c.conversationID, u.image, c.topic, u.fname, u.lname, us.image, us.fname, us.lname, MAX(date) as date
+    return db.execute(`SELECT c.conversationID, u.userID as uID, u.image, c.topic, u.fname, u.lname, us.userID as pID, us.image as pImage, us.fname as pfname, us.lname as plname, MAX(date) as date
             FROM conversation c
             LEFT JOIN user u ON c.partnerID = u.userID
             LEFT JOIN user us ON c.userID = us.userID
@@ -29,12 +29,12 @@ function getAllConversations(id){
 
 function getAllMessages(conversationID) {
     return db.execute(`
-        SELECT m.messageID, m.message, m.date, c.conversationID, u.userID, u.image
+        SELECT m.messageID, m.message, m.date, c.conversationID, u.userID, u.image, u.fname, u.lname
         FROM message m
         LEFT JOIN conversation c ON m.conversationID = c.conversationID
         LEFT JOIN user u ON m.userID = u.userID
         WHERE c.conversationID = '${conversationID}'
-        ORDER BY m.date DESC
+        ORDER BY m.date ASC
     `);
 }
 

@@ -9,13 +9,15 @@ exports.getConversations = (req, res, next) => {
         res.render('messages', {
             user: userID,
             conversation: rowData,
-            messageCSS: true
+            messageCSS: true,
+            openConvo: false
         })
     })
 }
 
 exports.getMessages = (req, res, next) => {
     let userID = req.session.userID;
+    
     let conversationID = req.params.conversationID;
     let conversations = messageModel.getconversations(userID);
     conversations.then(([rows])=> {
@@ -23,13 +25,13 @@ exports.getMessages = (req, res, next) => {
         let messages = messageModel.getmessage(conversationID)
         messages.then(([mRows]) => {
             let mRowData = JSON.parse(JSON.stringify(mRows));
-            
             res.render('messages', {
                 user: userID,
                 conversation: rowData,
                 messages: mRowData,
                 messageCSS: true, 
                 conversationID: conversationID,
+                openConvo: true
             });
         });
         
@@ -59,7 +61,8 @@ exports.newMessage = (req, res, next) => {
     let user = userModel.getUser(userID);
     user.then(([rows]) => {
         res.render('newMessage', {
-            user: rows[0]
+            user: rows[0],
+            newMessageCSS: true,
         });
     })
 }

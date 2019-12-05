@@ -1,11 +1,16 @@
+body {
+    justify-content: center;
+}
 
 #conversation_list {
     float: left;
+    height: 500px;
     align-items: center;
     margin-right: 80px;
     margin-top: 100px;
     word-wrap: break-word;
     flex-wrap: nowrap;
+    overflow: scroll;
 }
 
 .conversation_box {
@@ -14,6 +19,9 @@
     width: 300px;
 }
 
+.conversation_box > .date {
+    float: right;
+}
 .conversation_box > img {
     float: left;
     height: 80px;
@@ -23,8 +31,30 @@
 
 #message_list {
     margin-top: 100px;
+    
     justify-content: left;
     align-items: baseline;
+    
+}
+
+#allMessages {
+    height: 450px;
+    overflow: scroll;
+}
+
+.message_box {
+    display: block;
+    overflow: hidden;
+    width: 800px;
+    border-left: 1px solid black;
+}
+
+.message_box > .name {
+    margin-left: 10px;
+}
+
+.message_box > .message {
+    margin-left: 40px;
 }
 
 .message_box > img {
@@ -32,4 +62,30 @@
     height: 80px;
     width: 100px;
     border-radius: 50%;
+    margin-left: 20px;
+    margin-right: 20px;
 }
+
+.message_box > .date {
+    width: 100%; 
+    text-align: center; 
+    border-bottom: 1px solid #000; 
+    line-height: 0.1em;
+    margin: 10px 0 20px; 
+ } 
+ 
+.message_box > .date span { 
+     background:#fff; 
+     padding:0 10px; 
+ }
+
+ #messageInput {
+     height: 100px;
+     width: 100%;
+     resize: none;
+ }
+
+ #message {
+    width: 100%;
+    display: block;
+ }

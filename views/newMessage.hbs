@@ -1,16 +1,13 @@
-<div id="profile_container">
-    <div id="profile_box">
-        <div id="profile_info">
-            <img src="{{user.image}}">
-        </div>
-        <div id="message">
-            <form action="/newConversation" method="POST">
-                <input type="hidden" name="partnerID" value="{{user.userID}}">
-                <input type="text" name="subject" placeholder="subject">
-                <input type="text" name="message" placeholder="message details...">
-                <button type="submit">Message</button>
-            </form>
-        </div>
-        <br>
+<div id="new_message_layout">
+    <div id="partnerImage">
+        <img src="{{user.image}}">
+    </div>
+    <div id="messageDetails">
+        <form action="/newConversation" method="POST">
+            <input type="hidden" name="partnerID" value="{{user.userID}}">
+            <input type="text" name="subject" placeholder="subject">
+            <textarea type="text" name="message" placeholder="message details..."></textarea>
+            <button type="submit">Message</button>
+        </form>
     </div>
 </div>
