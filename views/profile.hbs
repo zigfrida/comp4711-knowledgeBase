@@ -7,7 +7,9 @@
             <p>{{user.country}}</p>
         </div>
         <div id="extra_info">
+            {{#if differentUser}}
             <a href="/newMessage/{{user.userID}}">Message</a><br>
+            {{/if}}
             <form action="/like/{{user.userID}}" method="POST">
                 <button type="submit">{{user.likes}} Likes</button>
             </form>

@@ -89,3 +89,8 @@ body {
     width: 100%;
     display: block;
  }
+
+ .time {
+     float: right;
+     padding-right: 20px;
+ }

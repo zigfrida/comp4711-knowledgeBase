@@ -11,7 +11,7 @@ function getLatestConversation() {
 }
 
 function addMessage(data) {
-    let sql = "INSERT INTO message (userID, conversationID, message, date) VALUES ('" + data.userID + "','" + data.conversationID + "','" + data.message + "' ,'" + data.date + "')";
+    let sql = "INSERT INTO message (userID, conversationID, message, date, time) VALUES ('" + data.userID + "','" + data.conversationID + "','" + data.message + "' ,'" + data.date + "' , CURTIME())";
     db.execute(sql);
 }
 
@@ -29,12 +29,12 @@ function getAllConversations(id){
 
 function getAllMessages(conversationID) {
     return db.execute(`
-        SELECT m.messageID, m.message, m.date, c.conversationID, u.userID, u.image, u.fname, u.lname
+        SELECT m.messageID, m.message, m.date, c.conversationID, u.userID, u.image, u.fname, u.lname, m.time
         FROM message m
         LEFT JOIN conversation c ON m.conversationID = c.conversationID
         LEFT JOIN user u ON m.userID = u.userID
         WHERE c.conversationID = '${conversationID}'
-        ORDER BY m.date ASC
+        ORDER BY m.date ASC, time ASC
     `);
 }
 

@@ -5,8 +5,14 @@ let dateFormat = require('dateformat');
 
 exports.getUser = (req, res, next) => {
     let userID = req.params.id;
-
+    let currentUser = req.session.userID;
     let user = userModel.getUser(userID);
+    let differentUser = true;
+    console.log("UserID: " + userID)
+    console.log("current userID: " + currentUser)
+    if (userID == currentUser) {
+        differentUser = false;
+    }
     user.then(([data]) => {
         let userData = JSON.parse(JSON.stringify(data));
         userData[0].birthday = dateFormat(userData[0].birthday, "dd mmm yyyy");
@@ -23,6 +29,7 @@ exports.getUser = (req, res, next) => {
                     commentsData = JSON.parse(JSON.stringify(comments));
 
                     res.render('profile', {
+                        differentUser : differentUser,
                         pageTitle: "Profile Page",
                         profileCSS: true,
                         user: userData[0],
