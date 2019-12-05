@@ -38,10 +38,20 @@ function getAllMessages(conversationID) {
     `);
 }
 
+function getConversationCount(id){
+    return db.execute(`
+            SELECT COUNT(conversationID) as count
+            FROM conversation
+            WHERE userID =${id}
+            OR partnerID =${id}    
+            `)
+}
+
 module.exports = {
     addconvo: addConversation,
     getconversations: getAllConversations,
     getmessage: getAllMessages,
     addmessage: addMessage,
     getlatest: getLatestConversation,
+    getCount: getConversationCount,
 }
