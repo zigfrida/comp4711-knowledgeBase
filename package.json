@@ -14,16 +14,9 @@
   },
   "devDependencies": {},
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
-  },
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/zigfrida/comp4711-knowledgeBase.git"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node app.js"
   },
   "author": "Amanda Golubics",
-  "license": "ISC",
-  "bugs": {
-    "url": "https://github.com/zigfrida/comp4711-knowledgeBase/issues"
-  },
-  "homepage": "https://github.com/zigfrida/comp4711-knowledgeBase#readme"
+  "license": "ISC"
 }
