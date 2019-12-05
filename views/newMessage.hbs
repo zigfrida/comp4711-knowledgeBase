@@ -1,0 +1,16 @@
+<div id="profile_container">
+    <div id="profile_box">
+        <div id="profile_info">
+            <img src="{{user.image}}">
+        </div>
+        <div id="message">
+            <form action="/newConversation" method="POST">
+                <input type="hidden" name="partnerID" value="{{user.userID}}">
+                <input type="text" name="subject" placeholder="subject">
+                <input type="text" name="message" placeholder="message details...">
+                <button type="submit">Message</button>
+            </form>
+        </div>
+        <br>
+    </div>
+</div>

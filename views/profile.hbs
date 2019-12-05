@@ -7,7 +7,7 @@
             <p>{{user.country}}</p>
         </div>
         <div id="extra_info">
-            <a href="">Message</a><br>
+            <a href="/newMessage/{{user.userID}}">Message</a><br>
             <form action="/like/{{user.userID}}" method="POST">
                 <button type="submit">{{user.likes}} Likes</button>
             </form>

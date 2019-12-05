@@ -1,0 +1,35 @@
+
+#conversation_list {
+    float: left;
+    align-items: center;
+    margin-right: 80px;
+    margin-top: 100px;
+    word-wrap: break-word;
+    flex-wrap: nowrap;
+}
+
+.conversation_box {
+    float: left;
+    height: 80px;
+    width: 300px;
+}
+
+.conversation_box > img {
+    float: left;
+    height: 80px;
+    width: 100px;
+    border-radius: 50%;
+}
+
+#message_list {
+    margin-top: 100px;
+    justify-content: left;
+    align-items: baseline;
+}
+
+.message_box > img {
+    float: left;
+    height: 80px;
+    width: 100px;
+    border-radius: 50%;
+}

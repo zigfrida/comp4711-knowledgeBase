@@ -5,6 +5,7 @@ const userController = require("../controllers/userController");
 const postController = require("../controllers/postController");
 const commentController = require("../controllers/commentController");
 const loginController = require("../controllers/loginController");
+const messageController = require("../controllers/messageController");
 
 
 router.get('/', loginController.loggedin, homeController.getHomePage);
@@ -27,6 +28,12 @@ router.get('/moreDetails', function (req, res) {
         signupCSS: true,
     });
 });
+
+router.get('/newMessage/:id', messageController.newMessage)
+router.post('/newConversation/', messageController.newConversation)
+router.get('/conversations', messageController.getConversations)
+router.get('/conversations/:conversationID', messageController.getMessages)
+router.post('/sendNewMessage', messageController.conversationMessage)
 
 router.post('/search', loginController.loggedin,  homeController.getSearch);
 router.post('/searchTopic', loginController.loggedin, homeController.getSearchTopic);

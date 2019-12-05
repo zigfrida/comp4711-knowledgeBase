@@ -1,0 +1,16 @@
+{{#each messages}}
+<div class="message_box">
+    <img src="{{image}}">
+    <p class="name">{{fname}} {{lname}}</p>
+    <p class="message">{{message}}</p>
+    <p class="date">{{#date this.date}}{{/date}}</p>
+    <br>
+</div>
+{{/each}}
+<div id="message">
+    <form action="/sendNewMessage" method="POST">
+        <input type="hidden" name="conversationID" value={{conversationID}}>
+        <input type="text" name="message" placeholder="message...">
+        <button type="submit">Send</button>
+    </form>
+</div>
